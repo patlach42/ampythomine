@@ -7,5 +7,5 @@ setup(name='ampythomine',
       author='Fedotov Maxim',
       author_email='f42.dobro@gmail.com',
       license='MIT',
-      packages=['ampythomine'],
+      packages=['ampythomine', 'ampythomine.db', 'ampythomine.auth'],
       zip_safe=False)
