@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(name='ampythomine',
       version='0.1',
@@ -7,5 +7,5 @@ setup(name='ampythomine',
       author='Fedotov Maxim',
       author_email='f42.dobro@gmail.com',
       license='MIT',
-      packages=['ampythomine', 'ampythomine.db', 'ampythomine.auth'],
+      packages=find_packages(),
       zip_safe=False)
