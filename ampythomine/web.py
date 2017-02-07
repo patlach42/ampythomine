@@ -35,9 +35,8 @@ class View(AbstractView):
         resp = yield from method()
         return resp
 
-    @staticmethod
-    def response(body, content_type='text/html', charset='utf-8', status_code=200):
-        kwargs = {'body': body, 'content_type': content_type, 'charset': charset, 'status': status_code}
+    def response(self, body, content_type='text/html', charset='utf-8', status_code=200, **kwargs):
+        kwargs.update({'body': body, 'content_type': content_type, 'charset': charset, 'status': status_code})
         if isinstance(body, str):
             kwargs['body'] = body.encode('utf-8')
         elif isinstance(body, dict) or isinstance(body, list):

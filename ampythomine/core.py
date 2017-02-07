@@ -32,9 +32,9 @@ class Application(AioHTTPApp):
 
         # Auth init
         # TODO: подтягивать бэкэнд для хранения сессий из конфига
-        redis_pool = RedisPool(('localhost', 6379), db=0, password=None, ssl=None, encoding=None,
-                               minsize=1, maxsize=10, commands_factory=Redis, loop=None)
-        setup_session(self, RedisStorage(redis_pool))
+        self.redis_pool = RedisPool(('localhost', 6379), db=0, password=None, ssl=None, encoding=None,
+                                    minsize=1, maxsize=10, commands_factory=Redis, loop=None)
+        setup_session(self, RedisStorage(self.redis_pool))
         auth_backend = importlib.import_module(config['AUTH']['BACKEND'])
         setup_security(self,
                        IdentityPolicy(),
